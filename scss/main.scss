@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+//////////////// resets
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+////////////// variables
+
+// FONTS
+$reg: 400;
+$bold: 700;
+
+// COLORS
+
+// primary
+
+// text
+$Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+$Soft-red: hsl(14, 88%, 65%);
+
+// bg_gradient
+$Soft-violet: hsl(273, 75%, 66%);
+$Soft-blue: hsl(240, 73%, 65%);
+
+// neutral
+
+// text
+$Very-dark-grayish-blue: hsl(237, 12%, 33%);
+$Dark-grayish-blue: hsl(240, 6%, 50%);
+
+// dividers
+$Light-grayish-blue: hsl(240, 5%, 91%);
+
+
+
+
+
+//////////////// MOBILE STYLES
+body{
+    font-family: 'Kumbh Sans', sans-serif;
+    background: linear-gradient(-150deg, $Soft-violet, $Soft-blue) no-repeat;
+    // height: 100vh;
+    padding: 2em;    
+}
+
+h1{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+a{
+    font-size: .75rem;
+    color: $Very-dark-grayish-blue;
+}
+// a{
+//     font-weight: $bold;
+// }
+p{
+    font-size: .7rem;
+}
+
+.card{
+    width: 18rem;
+    margin:90px auto;
+    padding: 0 1.5em 2em;
+    background-color: #fff;
+    background-image: url('../images/bg-pattern-mobile.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 1%;
+    background-size: 68%;
+    border-radius: 16px;
+    box-shadow: 1px 20px 25px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    
+    
+    img{
+        margin-top: -6.2em;
+        margin-right: 1.5em;
+    }
+
+
+    .card__content{
+        .card__title{
+            font-size: 1.8rem;
+            margin-top: 1.5em;
+            margin-bottom: 1em;
+        }
+        details{
+            margin-bottom: 1em;
+            padding: .7em 0;
+            border-bottom: 1px solid $Light-grayish-blue;
+            position: relative;
+
+            &[open] summary{
+                font-weight: $bold;
+            }
+
+            &[open] summary::-webkit-details-marker{
+                transform: rotate(180deg);
+            }
+        }
+
+        details:nth-child(6){
+            border-bottom: 0;
+        }
+        summary{
+            font-size: .7rem;
+            color: $Very-dark-grayish-blue;
+            position: relative;
+            outline: none;
+            cursor: pointer;
+
+            &:hover{
+                color: tomato;
+            }
+
+            &::-webkit-details-marker{
+                color: transparent;
+                background-image: url('../images/icon-arrow-down.svg');
+                background-repeat: no-repeat;
+                background-size: 100%;
+                // background-position: px 0;
+                // padding: 0 2em;
+                position: absolute;
+                right: 0;
+                // border: 1px solid magenta;
+                padding: .05em;
+                transition: transition .3s ease-in-out;
+            }
+        }
+        p{
+            font-size: .6rem;
+            margin-top: 1em;
+            line-height: 1.6;
+            padding-right: 4em;
+            color: $Dark-grayish-blue;
+            animation: open .3s ease-in-out;
+
+            @keyframes open{
+                from{
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to{
+                    opacity: 1;
+                    transform: translateY(0); 
+                }
+            }
+        }
+
+
+        
+    }
+}
+
+
+///////////////  MEDIA QUERIES
+
+@media( min-width: 1000px){
+    .card{
+        width: 45rem;
+        height: 32rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4em 5em 3em 0;
+        margin:30px auto;
+        background-position: -12em 16.5em;
+        overflow: auto;
+
+
+        img{
+            width: 25rem;
+            margin: 0;
+            margin-left: -6.5em;
+        }
+
+        .card__content{
+            width: 40%;
+            margin: 0;
+            height: 20rem;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar{
+                width: 0px;
+                background-color: transparent;
+            }
+            .card__title{
+                text-align: left;
+                margin: 0 0 .5em 0;
+            }
+        }
+    }
+}
+
+.attribution {
+     font-size: 11px; text-align: center; 
+}
+.attribution a 
+{ 
+    color: hsl(228, 45%, 44%); 
+}
